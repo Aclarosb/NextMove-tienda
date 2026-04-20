@@ -1,146 +1,208 @@
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  body {
-    font-family: Arial, sans-serif;
-  }
+/* ── BODY ── */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+  background: linear-gradient(135deg, #1e1e2f, #2c3e50);
+}
 
-  /* ── NAVBAR ── */
-  nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 15px;
-    z-index: 100;
-  }
+/* ── NAVBAR ── */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 15px;
+  z-index: 100;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
 
-  nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.3s;
-  }
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
 
-  nav a:hover {
-    color: #f0c040;
-  }
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background: #f0c040;
+  transition: 0.3s;
+}
 
-/* Botón de navegación interno */
-  nav button {
-    padding: 12px 28px;
-    background: transparent;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 1rem;
-  }
-  nav button:hover { background: #f0c040; color: #222; }
+nav a:hover::after {
+  width: 100%;
+}
 
+nav a:hover {
+  color: #f0c040;
+}
 
-  /* ── SECCIONES NORMALES ── */
-  .seccion-contenido {
-    padding: 80px 40px;
-    background: #f5f5f5;
-    text-align: center;
-    min-height: 50vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-  }
+/* Botón de navegación */
+nav button {
+  padding: 10px 24px;
+  background: linear-gradient(135deg, #f0c040, #ffdd70);
+  color: #222;
+  border-radius: 8px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
-  .seccion-contenido h2 {
-    font-size: 2rem;
-    color: #333;
-  }
+nav button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(240,192,64,0.5);
+}
 
-  .seccion-contenido p {
-    max-width: 600px;
-    color: #666;
-    line-height: 1.7;
-  }
-  .scroll {
-    background-image: url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600");
-    background-attachment: scroll; /* default: la imagen viaja con el elemento */
-  }
+/* ── SECCIONES NORMALES ── */
+.seccion-contenido {
+  padding: 100px 40px;
+  background: linear-gradient(135deg, #ffffff, #f1f1f1);
+  text-align: center;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
 
-  .boton-nav {
-    padding: 12px 28px;
-    background: #333;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background 0.3s;
-  }
+.seccion-contenido h2 {
+  font-size: 2.4rem;
+  color: #222;
+}
 
-  .boton-nav:hover {
-    background: #f0c040;
-    color: #333;
-  }
+.seccion-contenido p {
+  max-width: 650px;
+  color: #555;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
 
-  /* ── SECCIONES PARALLAX ── */
-  .parallax {
-    background-attachment: fixed;  /* ← la magia */
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+/* Fondo scroll mejorado */
+.scroll {
+  background-image: url("https://images.unsplash.com/photo-1517649763962-0c623066013b?w=1600");
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
+  color: white;
+}
 
-  /* Cada sección tiene su propia imagen */
-  #inicio {
-    background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600');
-  }
+/* Botón */
+.boton-nav {
+  padding: 12px 30px;
+  background: linear-gradient(135deg, #333, #555);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
 
-  #segunda {
-    background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1600');
-  }
+.boton-nav:hover {
+  background: #f0c040;
+  color: #222;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
 
-  /* Texto encima del parallax */
-  .parallax-texto {
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 40px 60px;
-    border-radius: 12px;
-    text-align: center;
-  }
+/* ── PARALLAX ── */
+.parallax {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
 
-  .parallax-texto h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-  }
+/* Overlay oscuro elegante */
+.parallax::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  top: 0;
+  left: 0;
+}
 
-  .parallax-texto p {
-    font-size: 1.2rem;
-    opacity: 0.8;
-  }
+/* Imágenes más atractivas */
+#inicio {
+  background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1600');
+}
 
-  /* Hint de teclado */
-  .hint-teclado {
-    margin-top: 20px;
-    font-size: 0.85rem;
-    opacity: 0.7;
-  }
+#segunda {
+  background-image: url('https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=1600');
+}
 
-  .tecla {
-    display: inline-block;
-    background: white;
-    color: #333;
-    border-radius: 4px;
-    padding: 2px 8px;
-    font-weight: bold;
-  }
+/* Texto encima */
+.parallax-texto {
+  position: relative;
+  background: rgba(0, 0, 0, 0.65);
+  color: white;
+  padding: 50px 70px;
+  border-radius: 16px;
+  text-align: center;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  animation: fadeIn 1.2s ease;
+}
 
+.parallax-texto h1 {
+  font-size: 3.2rem;
+  margin-bottom: 10px;
+}
+
+.parallax-texto p {
+  font-size: 1.3rem;
+  opacity: 0.9;
+}
+
+/* Animación */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hint teclado */
+.hint-teclado {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.tecla {
+  display: inline-block;
+  background: linear-gradient(135deg, #fff, #ddd);
+  color: #333;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
